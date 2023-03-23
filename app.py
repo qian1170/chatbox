@@ -7,14 +7,16 @@ from streamlit_chat import message
 openai.api_key = st.secrets["api_secret"]
 
 
-def generate_response(prompt):  
-    completion = openai.ChatCompletion.create(
-        model="gpt-3.5-turbo", 
-        messages = [{"role": "system", "content" : "You are ChatGPT, a large language model trained by OpenAI. Answer as concisely as possible.\nKnowledge cutoff: 2021-09-01\nCurrent date: 2023-03-02"},
-        {"role": "user", "content" : "How are you?"},
-        {"role": "assistant", "content" : "I am doing well"},
-        {"role": "user", "content" : "What is the mission of the company OpenAI?"}])
-    message = completion
+def generate_response(prompt):
+    completions = openai.Completion.create(
+        model="gpt-3.5-turbo",
+        prompt = prompt,
+        max_tokens = 1024,
+        n = 1,
+        stop = None,
+        temperature=0.5,
+    )
+    message = completions.choices[0].text
     return message 
 
 
