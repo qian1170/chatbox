@@ -4,7 +4,7 @@ import streamlit as st
 # pip install streamlit-chat  
 from streamlit_chat import message
 
-openai.api_key = "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"
+openai.api_key = st.secrets["api_secret"]
 
 
 def generate_response(prompt):
