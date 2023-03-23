@@ -1,2 +1,2 @@
 # chatbox
-with gpt-3.5-turbo
+with text-davinci-003
