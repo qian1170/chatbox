@@ -14,7 +14,7 @@ def generate_response(prompt):
     {"role": "user", "content" : "How are you?"},
     {"role": "assistant", "content" : "I am doing well"},
     {"role": "user", "content" : "What is the mission of the company OpenAI?"}])
-    message = completions.choices[0].text
+    message = completion.choices[0].text
     return message 
 
 
